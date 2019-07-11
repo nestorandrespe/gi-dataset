@@ -40,5 +40,11 @@ elementoDescarga.click();
 Una vez se haya descargado el archivo urls.txt, correr en la consola el archivo python especificando --urls [la ruta al archivo] y --output [la carpeta de destino]
 
 ```bash
-python download_images.py --urls [ruta al archivo] --output [ruta de destino]
+python descarga-imagenes.py --urls [ruta al archivo] --output [ruta de destino]
+```
+
+Cuando ya esten descargadas las imagenes se puede usar el archivo escalar-imagenes.py para escalar las imagenes a un cuadrado de 400 x 400 y ser usadas para un dataset especificando --input [la carpeta donde se descargaron las imágenes] y el --output [la carpeta donde se van a guardar las nuevas versiones]
+
+```bash
+python escalar-imagenes.py --input [ruta de la carpeta input] --output [ruta de destino]
 ```
