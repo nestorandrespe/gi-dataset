@@ -37,3 +37,8 @@ elementoDescarga.download = 'urls.txt';
 elementoDescarga.click();
 ```
 
+Una vez se haya descargado el archivo urls.txt, correr en la consola el archivo python especificando --urls [la ruta al archivo] y --output [la carpeta de destino]
+
+```bash
+python download_images.py --urls [ruta al archivo] --output [ruta de destino]
+```

@@ -8,13 +8,13 @@ import os
 # como el script se ejecuta desde la consola, se crean dos argumentos
 ap = argparse.ArgumentParser()
 
-# --urls es la ruta del archivo urls.txt que se creó desde la consola del navegador
+# --urls es la ruta del archivo urls.txt que se creo desde la consola del navegador
 ap.add_argument("-u", "--urls", required=True,
 	help="ruta al archivo que contiene las URLs")
 
-# --output es la ruta de la carpeta en donde se van a descargar las imágenes
+# --output es la ruta de la carpeta en donde se van a descargar las imagenes
 ap.add_argument("-o", "--output", required=True,
-	help="ruta de la carpeta para descargar las imágenes")
+	help="ruta de la carpeta para descargar las imagenes")
 
 # guarda los argumentos recibidos en una variable
 args = vars(ap.parse_args())
@@ -22,7 +22,7 @@ args = vars(ap.parse_args())
 # crea una variable con todas las URLs para iterar mas adelante
 rows = open(args["urls"]).read().strip().split("\n")
 
-# variable que almacena el número de imágenes descargadas
+# variable que almacena el numero de imagenes descargadas
 total = 0
 
 # loop las URLs
@@ -46,7 +46,7 @@ for url in rows:
 	except:
 		print("[INFO] error descargando {}...saltando".format(p))
 
-# abre cada una de las imágenes que acabamos de descargar
+# abre cada una de las imagenes que acabamos de descargar
 for imagePath in paths.list_images(args["output"]):
 	# variable boolean que determina si la imagen se borra o no
 	delete = False
@@ -59,7 +59,7 @@ for imagePath in paths.list_images(args["output"]):
 		if image is None:
 			delete = True
  
-	# si OpenCV bota error entonces la imagen esta dañada y debe borrarse
+	# si OpenCV bota error entonces la imagen esta danada y debe borrarse
 	except:
 		print("Except")
 		delete = True
