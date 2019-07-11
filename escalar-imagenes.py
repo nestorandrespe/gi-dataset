@@ -45,38 +45,15 @@ for imagePath in paths.list_images(args["input"]):
             restante = restante / 2
             cropped = im.crop((restante, 0, restante + h, h))
 
+        # si la imagen es mas grande que 400 x 400 la guarda
         if cropped.size[0] > 400:
             p = os.path.sep.join([args["output"], "{}.jpg".format(
 			str(total).zfill(8))])
             cropped.thumbnail((400,400))
             cropped.save(p, 'JPEG')
             total += 1
+            print("[INFO] imagen guardada")
+        else:
+            print("[INFO] imagen demasiado pequena")
     except:
-        print("error al cargar la imagen")
-
-
-
-# # guardar los tamanos de la imagen en unas variables
-# w = im.size[0]
-# h = im.size[1]
-
-# # si la imagen es vertical
-# if w < h:
-#     # calcula el sobrante y lo divide por dos para cortar la imagen en el centro
-#     restante = h - w
-#     restante = restante / 2
-#     cropped = im.crop((0, restante, w, w + restante))
-
-# # si la imagen es horizontal
-# elif w > h:
-#     # calcula el sobrante y lo divide por dos para cortar la imagen en el centro
-#     restante = w - h
-#     restante = restante / 2
-#     cropped = im.crop((restante, 0, restante + h, h))
-    
-# # cropped = im.crop((0,0,200,200))
-# if cropped.size[0] > 400:
-#     cropped.thumbnail((400,400))
-#     cropped.save('thumb.jpeg', 'JPEG')
-
-# print(cropped.size[0])
+        print("[INFO] error al cargar la imagen")
