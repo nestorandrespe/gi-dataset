@@ -47,8 +47,7 @@ for imagePath in paths.list_images(args["input"]):
 
         # si la imagen es mas grande que 400 x 400 la guarda
         if cropped.size[0] > 400:
-            p = os.path.sep.join([args["output"], "{}.jpg".format(
-			str(total).zfill(8))])
+            p = os.path.sep.join([args["output"], "{}.jpg".format(str(total).zfill(8))])
             cropped.thumbnail((400,400))
             cropped.save(p, 'JPEG')
             total += 1

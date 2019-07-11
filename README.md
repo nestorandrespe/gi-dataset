@@ -52,3 +52,11 @@ Cuando ya esten descargadas las imagenes se puede usar el archivo escalar-imagen
 ```bash
 python escalar-imagenes.py --input [ruta de la carpeta input] --output [ruta de destino]
 ```
+
+## Convertir las imágenes a blanco y negro
+
+Las imagenes se pueden convertir a blanco y negro usando bw-imagenes.py especificando --input [la carpeta donde se descargaron las imágenes] y el --output [la carpeta donde se van a guardar las nuevas versiones]
+
+```bash
+python bw-imagenes.py --input [ruta de la carpeta input] --output [ruta de destino]
+```
