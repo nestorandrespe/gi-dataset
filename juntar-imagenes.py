@@ -2,6 +2,7 @@ from PIL import Image
 from imutils import paths
 import os
 import argparse
+from natsort import natsorted
 
 # como el script se ejecuta desde la consola, se crean dos argumentos
 ap = argparse.ArgumentParser()
@@ -24,13 +25,17 @@ args = vars(ap.parse_args())
 # variable del total de imagenes
 total = 0
 
+
+arrayLeft = paths.list_images(args["left"])
+newArrayLeft = natsorted(arrayLeft)
+arrayRight = paths.list_images(args["right"])
+newArrayRight = natsorted(arrayRight)
+
 # abre cada una de las imagenes en la carpeta del input
-for imagePath in paths.list_images(args["left"]):
+for imagePath in newArrayLeft:
     try:
-        total += 1
-        path_right = "render" + str(total).zfill(4) + ".png"
-        final_path = os.path.join(args["right"], path_right)
-        im_right = Image.open(final_path)
+        # print(imagePath)
+        im_right = Image.open(newArrayRight[total])
         im_right.thumbnail((400,400))
         
         im_left = Image.open(imagePath)
@@ -41,5 +46,7 @@ for imagePath in paths.list_images(args["left"]):
         new_img.paste(im_right, (400,0))
 
         new_img.save(os.path.join(args["output"], "render" + str(total).zfill(4) + ".jpg"))
+        total += 1
+
     except:
         print("error")
