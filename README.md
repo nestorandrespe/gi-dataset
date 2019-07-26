@@ -60,3 +60,19 @@ Las imagenes se pueden convertir a blanco y negro usando bw-imagenes.py especifi
 ```bash
 python bw-imagenes.py --input [ruta de la carpeta input] --output [ruta de destino]
 ```
+
+## Juntar dos sets de imágenes
+
+Las imagenes se juntan en una sola imagen horizontal para procesar con Pix2pix
+
+```bash
+python juntar-imagenes.py --left [ruta de las imagenes de la izquierda] --right [ruta de las imagenes de la derecha] --output [ruta de destino]
+```
+
+## Detectar bordes de la imagen
+
+Las imagenes se juntan en una sola imagen horizontal para procesar con Pix2pix
+
+```bash
+python detectar-border.py --input [ruta de la carpeta input] --output [ruta de destino]
+```

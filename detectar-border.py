@@ -26,12 +26,13 @@ for imagePath in paths.list_images(args["input"]):
     try:
         img = cv2.imread(imagePath,0)
 
+        # extraer border
         edges = cv2.Canny(img,256,256)
+        # invertir color imaagen
+        newBordes = cv2.bitwise_not(edges)
+        # output
+        cv2.imwrite(os.path.join(args["output"], "render" + str(total).zfill(4) + ".jpg"),newBordes)
 
-        newEdges = cv2.bitwise_not(edges)
-
-        path = imagePath.replace('bw', 'edges')
-
-        cv2.imwrite(path,newEdges)
+        total += 1
     except:
         print("error")
